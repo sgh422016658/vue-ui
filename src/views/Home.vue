@@ -16,7 +16,7 @@ export default {
             this.$toast({
                 message: this.number,
                 position: 'bottom',
-                duration: 10000
+                duration: 3000
             })
             this.number ++;
         }

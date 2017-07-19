@@ -6,6 +6,7 @@ let Toast = {},
     toastPool = [];
 
 let getAnInstance = () => {
+    console.log(toastPool)
     if (toastPool.length > 0) {
         let instance = toastPool[0];
         toastPool.splice(0, 1);
@@ -14,18 +15,24 @@ let getAnInstance = () => {
     return new ToastConstructor().$mount()
 }
 
-ToastConstructor.prototype.close = function() {
-    this.visible = false;
-    //等过渡动画完成后再移除DOM
-    this.$el.addEventListener('transitionend', removeDom);
-    this.closed = true;
-
+let returnAnInstance = instance => {
+    if (instance) {
+        toastPool.push(instance);
+    }
 };
 
 let removeDom = event => {
     if (event.target.parentNode) {
         event.target.parentNode.removeChild(event.target);
     }
+};
+
+ToastConstructor.prototype.close = function() {
+    this.visible = false;
+    //等过渡动画完成后再移除DOM
+    this.$el.addEventListener('transitionend', removeDom);
+    this.closed = true;
+    returnAnInstance(this);
 };
 
 Toast.install = (Vue, options) => {
