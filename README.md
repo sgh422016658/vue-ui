@@ -3,6 +3,7 @@
 > 友语科技常用组件(vue篇)
 
 > * [Toast插件](https://github.com/sgh422016658/vue-youyu-ui/tree/master/src/components/toast)
+> * [Dialog插件](https://github.com/sgh422016658/vue-youyu-ui/tree/master/src/components/dialog)
 
 ## Build Setup
 
