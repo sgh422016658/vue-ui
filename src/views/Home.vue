@@ -1,6 +1,10 @@
 <template>
-    <div>
-        <div @click="testToast">测试Toast</div>
+    <div class="page-container">
+        <div class="page-title">
+            vue-youyu-ui
+        </div>
+        <a class="youyu-cell" @click="linkTo('/demo/toast', 'Toast')">Toast</a>
+        <a class="youyu-cell" @click="linkTo('/demo/dialog', 'Dialog')">Dialog</a>
     </div>
 </template>
 
@@ -11,14 +15,12 @@ export default {
     data: () => ({
         number: 0
     }),
+    mounted() {
+        
+    },
     methods: {
-        testToast() {
-            this.$toast({
-                message: '测试',
-                position: 'bottom', //此处可以选择top bottom middle来设置toast位置
-                duration: 3000
-            })
-            this.number ++;
+        linkTo(path, name) {
+            this.$router.push({path: path, query: { name: name}})
         }
     }
 }

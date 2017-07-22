@@ -6,7 +6,6 @@ let Toast = {},
     toastPool = [];
 
 let getAnInstance = () => {
-    console.log(toastPool)
     if (toastPool.length > 0) {
         let instance = toastPool[0];
         toastPool.splice(0, 1);
@@ -35,30 +34,28 @@ ToastConstructor.prototype.close = function() {
     returnAnInstance(this);
 };
 
-Toast.install = (Vue, options) => {
-    Vue.prototype.$toast = (options = {}) => {
-        let duration = options.duration || 3000;
+Toast = (options = {}) => {
+    let duration = options.duration || 3000;
 
-        let instance = getAnInstance();
-        instance.closed = false;
-        clearTimeout(instance.timer);
+    let instance = getAnInstance();
+    instance.closed = false;
+    clearTimeout(instance.timer);
 
-        instance.message = typeof options === 'string' ? options : options.message;
-        instance.position = options.position || 'middle';
+    instance.message = typeof options === 'string' ? options : options.message;
+    instance.position = options.position || 'middle';
+    instance.visible = true;
+
+    document.body.appendChild(instance.$el)
+
+    Vue.nextTick(function() {
         instance.visible = true;
+        instance.$el.removeEventListener('transitionend', removeDom);
+        instance.timer = setTimeout(function() {
+            if (instance.closed) return;
+            instance.close();
+        }, duration)
+    });
 
-        document.body.appendChild(instance.$el)
-
-        Vue.nextTick(function() {
-            instance.visible = true;
-            instance.$el.removeEventListener('transitionend', removeDom);
-            instance.timer = setTimeout(function() {
-                if (instance.closed) return;
-                instance.close();
-            }, duration)
-        });
-
-    }
 }
 
 export default Toast
