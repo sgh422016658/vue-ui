@@ -5,6 +5,7 @@
         </div>
         <a class="youyu-cell" @click="linkTo('/demo/toast', 'Toast')">Toast</a>
         <a class="youyu-cell" @click="linkTo('/demo/dialog', 'Dialog')">Dialog</a>
+        <a class="youyu-cell" @click="linkTo('/demo/indicator', 'Indicator')">Indicator</a>
     </div>
 </template>
 

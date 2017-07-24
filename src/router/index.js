@@ -20,14 +20,21 @@ export default new Router({
                     path: 'toast',
                     name: 'Toast弹窗',
                     component: resolve => {
-                        require(['../views/Toast.vue'], resolve);
+                        require(['../views/components/Toast.vue'], resolve);
                     }
                 },
                 {
                     path: 'dialog',
                     name: 'Dialog对话框',
                     component: resolve => {
-                        require(['../views/Dialog.vue'], resolve);
+                        require(['../views/components/Dialog.vue'], resolve);
+                    }
+                },
+                {
+                    path: 'indicator',
+                    name: 'indicator加载框',
+                    component: resolve => {
+                        require(['../views/components/Indicator.vue'], resolve);
                     }
                 }
             ]

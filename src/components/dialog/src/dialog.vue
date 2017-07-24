@@ -4,9 +4,12 @@
         <transition name="dialog">
             <div class="youyu-dialog" v-show="dialogShow">
                 <div class="header">{{title}}</div>
-                <div class="content">{{content}}</div>
+                <div class="content">
+                    <span v-if="!isPrompt">{{content}}</span>
+                    <input v-else type="text" v-model="inputValue" />
+                </div>
                 <div class="footer">
-                    <a class="btn cancel" @click="handleAction('cancel')">取消</a>
+                    <a class="btn cancel" v-show="showCancelButton" @click="handleAction('cancel')">取消</a>
                     <a class="btn" @click="handleAction('confirm')">确定</a>
                 </div>
             </div>
@@ -20,7 +23,10 @@ export default {
         title: '',
         content: '',
         callback: Function,
-        dialogShow: false
+        showCancelButton: true,
+        dialogShow: false,
+        isPrompt: false,
+        inputValue: ''
     }),
     methods: {
         handleAction(action) {
@@ -33,11 +39,13 @@ export default {
 
 
 <style>
-.dialog-enter-active, .dialog-leave-active {
-    transition: all .2s
-}
-.dialog-enter, .dialog-leave-to /* .fade-leave-active 在 <2.1.8 中 */ {
+.dialog-enter {
     opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.7) !important;
+}
+.dialog-leave-active {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.9) !important;
 }
 
 .mask-container{
@@ -53,10 +61,12 @@ export default {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 260px;
-    background: #fff;
+    background-color: #fff;
+    transform: translate3d(-50%, -50%, 0);
+    width: 80%;
     border-radius: 10px;
-    transform: translate3d(-50%,-50%,0);
+    font-size: 16px;
+    transition: .2s;
     z-index: 2000;
 }
 .youyu-dialog .header{
@@ -70,9 +80,17 @@ export default {
     text-align: center;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
-    padding: 30px 0;
+    padding: 30px 15px;
     color: rgb(34, 34, 34);
     font-size: 14px;
+}
+.youyu-dialog input{
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    padding: 8px;
+    width: 100%;
+    appearance: none;
+    outline: none;
 }
 .youyu-dialog .footer{
     height: 40px;line-height: 40px;display: flex;
