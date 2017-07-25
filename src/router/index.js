@@ -36,6 +36,20 @@ export default new Router({
                     component: resolve => {
                         require(['../views/components/Indicator.vue'], resolve);
                     }
+                },
+                {
+                    path: 'lazyload',
+                    name: '图片懒加载',
+                    component: resolve => {
+                        require(['../views/components/LazyLoad.vue'], resolve);
+                    }
+                },
+                {
+                    path: 'lazyload/directive',
+                    name: '指令图片懒加载',
+                    component: resolve => {
+                        require(['../views/components/LazyLoadDirective.vue'], resolve);
+                    }
                 }
             ]
         },

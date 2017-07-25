@@ -4,9 +4,7 @@
             <a class="page-back" @click="goBack">prev</a>
             <h1 class="page-title">{{name}}</h1>
         </header>
-        <div class="page-toast-wrapper">
-            <router-view></router-view>
-        </div>
+        <router-view></router-view>
     </div>
 </template>
 

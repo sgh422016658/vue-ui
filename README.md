@@ -11,6 +11,8 @@ Vue.use(YouyuUI)
 
 > * [Toast插件](https://github.com/sgh422016658/vue-youyu-ui/tree/master/src/components/toast)
 > * [Dialog插件](https://github.com/sgh422016658/vue-youyu-ui/tree/master/src/components/dialog)
+> * [Indicator插件](https://github.com/sgh422016658/vue-youyu-ui/tree/master/src/components/indicator)
+> * [LazyLoad插件](https://github.com/sgh422016658/vue-youyu-ui/tree/master/src/components/lazyload)
 
 ## Build Setup
 

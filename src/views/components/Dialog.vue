@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="page-toast-wrapper">
         <button class="youyu-button" @click="openAlert">打开alert对话框</button>
         <button class="youyu-button" @click="openConfirm">打开confirm对话框</button>
         <button class="youyu-button" @click="openPrompt">打开prompt对话框</button>

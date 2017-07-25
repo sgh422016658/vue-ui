@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="page-toast-wrapper">
         <button class="youyu-button" @click="openIndicator">打开Indicator加载框</button>
     </div>
 </template>

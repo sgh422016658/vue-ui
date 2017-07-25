@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="page-toast-wrapper">
         <button class="youyu-button" @click="middleToast">点击弹出Toast</button>
         <button class="youyu-button" @click="bottomToast">自定义Toast位置</button>
     </div>

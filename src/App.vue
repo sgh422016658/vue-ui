@@ -34,6 +34,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     line-height: 2;
 }
+ul{
+    margin: 0;padding: 0;
+}
+li{
+    list-style-type: none;
+}
 *{
     box-sizing: border-box;
 }
