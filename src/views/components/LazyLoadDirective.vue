@@ -40,9 +40,6 @@ export default {
 
 
 <style>
-.youyu-content{
-    position: absolute;left: 0;top: 60px;right: 0; bottom: 0;overflow-x: hidden;overflow-y: auto;
-}
 .lazy-img-wrap{
     width: 100%;
 }

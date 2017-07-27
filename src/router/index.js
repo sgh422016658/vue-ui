@@ -50,6 +50,13 @@ export default new Router({
                     component: resolve => {
                         require(['../views/components/LazyLoadDirective.vue'], resolve);
                     }
+                },
+                {
+                    path: 'infinite',
+                    name: '无限加载',
+                    component: resolve => {
+                        require(['../views/components/infiniteScroll.vue'], resolve);
+                    }
                 }
             ]
         },

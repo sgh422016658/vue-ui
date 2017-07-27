@@ -8,6 +8,7 @@
         <a class="youyu-cell" @click="linkTo('/demo/indicator', 'Indicator')">Indicator</a>
         <a class="youyu-cell" @click="linkTo('/demo/lazyload', 'Class图片懒加载')">LazyLoad(ES6 Class类实现)</a>
         <a class="youyu-cell" @click="linkTo('/demo/lazyload/directive', 'Directive图片懒加载')">LazyLoad(vue-directive实现)</a>
+        <a class="youyu-cell" @click="linkTo('/demo/infinite', '无限加载')">Infinite Scroll</a>
     </div>
 </template>
 
