@@ -57,6 +57,13 @@ export default new Router({
                     component: resolve => {
                         require(['../views/components/infiniteScroll.vue'], resolve);
                     }
+                },
+                {
+                    path: 'cell-swipe',
+                    name: '滑动删除',
+                    component: resolve => {
+                        require(['../views/components/cellSwiper.vue'], resolve);
+                    }
                 }
             ]
         },
